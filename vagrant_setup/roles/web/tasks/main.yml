@@ -1,0 +1,48 @@
+# SETUP NGINX
+- name: Install nginx web server
+  apt: name=nginx state=installed
+
+- name: Configure nginx
+  copy: src=nginx/giovanniblog dest=/etc/nginx/sites-available/giovanniblog
+
+- name: Create neccessary symlink
+  file: src=/etc/nginx/sites-available/giovanniblog dest=/etc/nginx/sites-enabled/giovanniblog state=link
+
+- name: Delete default nginx config file.
+  file: path=/etc/nginx/sites-enabled/default state=absent 
+
+
+# SETUP NECCESSARY DIRECTORIES
+- name: Create www directory
+  file: path=/home/vagrant/www state=directory owner=vagrant group=vagrant recurse=yes
+
+- name: Create Django static directory
+  file: path=/home/vagrant/www/static state=directory owner=vagrant group=vagrant
+
+- name: Create Django static media directory
+  file: path=/home/vagrant/www/media state=directory owner=vagrant group=vagrant 
+
+- name: Create working tree directory
+  file: path=/home/vagrant/www/website state=directory
+
+
+# SETUP GUNICORN
+- name: Create gunicorn directories
+  file: path=/home/vagrant/www/gunicorn state=directory
+
+- name: Configure gunicorn 
+  copy: src=gunicorn.conf.py dest=/home/vagrant/www/gunicorn/conf.py
+
+
+# SETUP SUPERVISOR
+- name: Install supervisor
+  apt: name=supervisor state=installed
+
+- name: Create supervisor directories
+  file: path=/etc/supervisor/conf.d state=directory
+
+- name: Create supervisor gunicorn log directores
+  file: path=/var/log/supervisor/gunicorn state=directory
+
+- name: setup gunicorn with supervisor
+  copy: src=supervisor/gunicorn.conf dest=/etc/supervisor/conf.d/gunicorn.conf
