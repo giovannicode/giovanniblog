@@ -2,8 +2,10 @@
 
 - name: Update Ubuntu Server 
   apt: update_cache=true
+
 # - name: Upgrade Ubuntu Server
 # - apt: upgrade=yes 
+
 - name: Ensure that libpq-dev, python-setuptools, python-dev, and pip are installed.
   apt: name={{ item }} state=installed
   with_items:
@@ -14,6 +16,9 @@
 
 - name: Ensure that the requirements directory exists
   file: path=setup/requirements state=directory
+
 - name: Copy the local pip requirements file 
-  copy: src=requirements.txt dest=requirements/requirements
+  copy: src=requirements.txt dest=requirements/requirements.txt
+
 - name: Install python package requirements 
+  pip: requirements=requirements/requirements.txt
