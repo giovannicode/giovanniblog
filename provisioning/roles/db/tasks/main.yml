@@ -1,0 +1,10 @@
+---
+
+- name: Install postgresql, and postgresql-contrib
+  apt: name={{ item }} state=installed
+  with_items:
+    - postgresql
+    - postgresql-contrib
+
+- name: Configure postgresql
+  script: config_postgres.sh
