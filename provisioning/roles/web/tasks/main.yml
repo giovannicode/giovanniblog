@@ -3,7 +3,7 @@
   apt: name=nginx state=installed
 
 - name: Configure nginx
-  copy: src=nginx/giovanniblog dest=/etc/nginx/sites-available/giovanniblog
+  copy: src=nginx/{{ nginx_conf }} dest=/etc/nginx/sites-available/giovanniblog
 
 - name: Create neccessary symlink
   file: src=/etc/nginx/sites-available/giovanniblog dest=/etc/nginx/sites-enabled/giovanniblog state=link
@@ -31,7 +31,7 @@
   file: path=/home/vagrant/www/gunicorn state=directory
 
 - name: Configure gunicorn 
-  copy: src=gunicorn.conf.py dest=/home/vagrant/www/gunicorn/conf.py
+  copy: src=gunicorn/conf.py dest=/home/vagrant/www/gunicorn/conf.py
 
 
 # SETUP SUPERVISOR

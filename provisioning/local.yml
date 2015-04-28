@@ -3,6 +3,8 @@
 - hosts: all 
   user: vagrant
   sudo: yes
+  vars:
+    nginx_conf: local
   roles: 
     - base
     - web

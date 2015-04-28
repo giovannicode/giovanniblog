@@ -15,10 +15,11 @@
     - python-pip
 
 - name: Ensure that the requirements directory exists
-  file: path=setup/requirements state=directory
+  file: path=requirements state=directory
 
 - name: Copy the local pip requirements file 
   copy: src=requirements.txt dest=requirements/requirements.txt
 
+# pip command won't work
 - name: Install python package requirements 
-  pip: requirements=requirements/requirements.txt
+  command: sudo pip install -r requirements/requirements.txt
