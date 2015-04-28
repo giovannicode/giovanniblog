@@ -12,7 +12,7 @@ def push_code():
     local("git push production master")
 
 def restart_gunicorn():
-    local("restart.yml")
+    local("ansible-playbook -u root provisioning/restart.yml")
 
 
 def deploy():
