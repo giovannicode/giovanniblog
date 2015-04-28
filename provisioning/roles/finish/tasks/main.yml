@@ -6,3 +6,9 @@
 
 - name: Restart gunicorn
   supervisorctl: name=gunicorn state=restarted config=/etc/supervisor/conf.d/gunicorn.conf
+
+- name: Migrate models into database
+  command: /home/vagrant/www/website/manage.py migrate
+
+- name: Collect static files
+  command: /home/vagrant/www/website/manage.py collectstatic --noinput
