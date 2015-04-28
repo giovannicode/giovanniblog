@@ -1,0 +1,9 @@
+---
+
+- hosts: giovannicode.com 
+  user: root
+  sudo: yes
+  vars:
+    nginx_conf: production
+  roles: 
+    - finish
