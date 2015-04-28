@@ -8,3 +8,15 @@ django-braces==1.4.0
 django-filter==0.9.2
 stripe==1.20.2
 fabric==1.10.1
+
+# Requirements for django-zinnia
+
+django-mptt
+django-tagging
+beautifulsoup4
+mots-vides
+django-contrib-comments
+pytz
+pyparsing
+django-xmlrpc
+django-blog-zinnia
