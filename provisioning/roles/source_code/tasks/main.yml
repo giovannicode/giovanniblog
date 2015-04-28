@@ -1,0 +1,8 @@
+- name: Create git repository path
+  file: path=/var/repo/site.git state=directory
+- name: Create base git repository 
+  command: git init --bare chdir=/var/repo/site.git
+- name: Create working tree directory
+  file: path=/home/root/www/website state=directory
+- name: Configure git
+  copy: src=git/post-receive dest=/var/repo/site.git/hooks/post-receive mode=744
