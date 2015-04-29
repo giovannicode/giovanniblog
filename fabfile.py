@@ -1,7 +1,7 @@
 from fabric.api import local, env, cd, run
 from fabric.context_managers import lcd
 
-env.hosts =['giovannicode.com']
+env.hosts =['45.55.216.113']
 env.user = "root"
 
 

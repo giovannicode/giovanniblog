@@ -1,6 +1,6 @@
 ---
 
-- hosts: giovannicode.com 
+- hosts: '45.55.216.113'
   user: root
   sudo: yes
   vars:
@@ -10,4 +10,3 @@
     - web
     - source_code
     - db
-    - finish
