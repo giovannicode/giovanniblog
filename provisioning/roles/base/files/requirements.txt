@@ -8,6 +8,7 @@ django-braces==1.4.0
 django-filter==0.9.2
 stripe==1.20.2
 fabric==1.10.1
+ansible==1.8.4
 
 # Requirements for django-zinnia
 
