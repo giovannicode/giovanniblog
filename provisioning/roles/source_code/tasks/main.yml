@@ -9,7 +9,7 @@
   command: git init --bare chdir=/var/repo/site.git
 
 - name: Create working tree directory
-  file: path=/home/root/www/website state=directory
+  file: path=/home/vagrant/www/website state=directory
 
 - name: Configure git
-  copy: src=git/post-receive dest=/var/repo/site.git/hooks/post-receive mode=744
+  copy: src=post-receive dest=/var/repo/site.git/hooks/post-receive mode=744

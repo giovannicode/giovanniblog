@@ -6,6 +6,6 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.network "forwarded_port", guest: 8080, host: 8080
-  config.vm.synced_folder "./blog", "/home/vagrant/www/website"
+  config.vm.synced_folder "./", "/home/vagrant/www/website"
 
 end
