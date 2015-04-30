@@ -1,7 +1,4 @@
 # SETUP GIT 
-- name: Install git
-  apt: name=git state=installed
-
 - name: Create git repository path
   file: path=/var/repo/site.git state=directory
 

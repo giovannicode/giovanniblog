@@ -46,3 +46,6 @@
 
 - name: setup gunicorn with supervisor
   copy: src=supervisor/gunicorn.conf dest=/etc/supervisor/conf.d/gunicorn.conf
+
+- name: Install git
+  apt: name=git state=installed
